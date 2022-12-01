@@ -14,7 +14,7 @@ function App() {
   //   }
   // }, []);
 
-  console.log(process.env.SPOTIFY_CLIENT_ID);
+  console.log(process.env.REACT_APP_SPOTIFY_CLIENT_ID);
 
   return (
     <div>
