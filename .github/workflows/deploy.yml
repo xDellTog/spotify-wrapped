@@ -12,6 +12,8 @@ jobs:
     env:
       CI: false
       REACT_APP_SPOTIFY_CLIENT_ID: ${{ secrets.REACT_APP_SPOTIFY_CLIENT_ID }}
+      REACT_APP_SPOTIFY_REDIRECT_URI: ${{ secrets.REACT_APP_SPOTIFY_REDIRECT_URI }}
+      REACT_APP_SPOTIFY_SCOPES: ${{ secrets.REACT_APP_SPOTIFY_SCOPES }}
 
     strategy:
       matrix:
