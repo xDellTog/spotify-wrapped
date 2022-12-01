@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/spotify-wrapped/static/js/main.49ad3c1a.js",
+    "main.js": "/spotify-wrapped/static/js/main.fd8b2977.js",
     "index.html": "/spotify-wrapped/index.html",
-    "main.49ad3c1a.js.map": "/spotify-wrapped/static/js/main.49ad3c1a.js.map"
+    "main.fd8b2977.js.map": "/spotify-wrapped/static/js/main.fd8b2977.js.map"
   },
   "entrypoints": [
-    "static/js/main.49ad3c1a.js"
+    "static/js/main.fd8b2977.js"
   ]
 }
