@@ -1,52 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { authUrl } from '../lib/authUrl';
-import SpotifyService from './services/SpotifyService';
+import { useEffect } from "react";
+import { styled, theme } from "../theme/stitches.config";
+import TopTracks from "./pages/TopTracks";
+
+const Theme = styled('div', {
+  background: '$slate12',
+  color: '$slate1',
+  fontFamily: '$default',
+});
 
 function App() {
-  const [accessToken, setAccessToken] = useState<string>();
-  const [tracks, setTracks] = useState<any[]>([]);
-
   useEffect(() => {
-    const query: any = Object.fromEntries(new URLSearchParams(window.location.hash.replace('#', '?')));
-    console.log(query);
-    if (!!query.access_token) {
-      setAccessToken(query.access_token);
-      window.location.hash = '';
+    if (theme) {
+      document.body.style.background = theme.colors.slate12.value;
+      document.body.style.color = theme.colors.slate1.value;
     }
-  }, []);
-
-  useEffect(() => {
-    if (accessToken) {
-      SpotifyService.getTopTracks(accessToken).then((response) => {
-        console.log(response);
-        setTracks(response.items);
-      }).catch((err) => {
-        console.log(err);
-      });
-    }
-  }, [accessToken]);
+  }, [theme]);
 
   return (
-    <div>
-      <h1>Spotify Wrapped</h1>
-
-      {!accessToken && (
-        <a href={authUrl}>
-          Entrar
-        </a>
-      )}
-
-      {accessToken && (
-        <div>
-          {tracks && tracks.map((track: any, idx: number) => (
-            <>
-              <b> #{idx + 1} - {track.name} </b>
-              <p> {track.artists.map((artist: any) => artist.name).join(', ')} </p>
-            </>
-          ))}
-        </div>
-      )}
-    </div>
+    <Theme className={theme}>
+      <TopTracks />
+    </Theme>
   );
 }
 
