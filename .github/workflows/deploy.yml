@@ -9,7 +9,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    env: 
+    env:
+      CI: false
       SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
 
     strategy:
